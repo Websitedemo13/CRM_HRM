@@ -127,6 +127,26 @@ All colors MUST be HSL.
 }
 
 @layer base {
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.3);
+    border-radius: 4px;
+    transition: background-color 0.2s;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.5);
+  }
+
   * {
     @apply border-border;
   }
@@ -173,6 +193,43 @@ All colors MUST be HSL.
   }
 }
 
+@layer components {
+  /* Enhanced Card Styling */
+  .card {
+    @apply rounded-lg border border-border/40 bg-card shadow-sm transition-all duration-200 hover:shadow-md;
+  }
+
+  /* Smooth transitions for all interactive elements */
+  button, [role="button"], a {
+    @apply transition-all duration-200;
+  }
+
+  /* Better shadows for depth */
+  .card-elevated {
+    @apply shadow-md hover:shadow-lg transition-shadow duration-300;
+  }
+
+  /* Glass morphism effect */
+  .glass {
+    @apply bg-card/50 backdrop-blur-sm border border-border/40;
+  }
+
+  /* Smooth hover lift effect */
+  .hover-lift {
+    @apply transition-all duration-200 hover:-translate-y-1 hover:shadow-md;
+  }
+
+  /* Improved active state */
+  .active-nav {
+    @apply bg-primary/10 text-primary font-semibold;
+  }
+
+  /* Smooth accordion */
+  [data-radix-accordion-trigger] {
+    @apply transition-all duration-200;
+  }
+}
+
 @layer utilities {
   .transition-smooth {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -196,5 +253,18 @@ All colors MUST be HSL.
 
   .shadow-strong {
     box-shadow: var(--shadow-strong);
+  }
+
+  /* Additional utility classes for consistency */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary via-primary to-blue-600 bg-clip-text text-transparent;
+  }
+
+  .smooth-border {
+    @apply border border-border/40 transition-colors duration-200 hover:border-border/60;
+  }
+
+  .backdrop-glass {
+    @apply bg-background/50 backdrop-blur-sm;
   }
 }
