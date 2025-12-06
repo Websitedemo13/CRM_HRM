@@ -153,14 +153,14 @@ const DashboardLayout = ({ children, role = 'staff', organizationSection, onOrga
     return (
         <div className="min-h-screen bg-background flex flex-col">
             {/* Top Navigation */}
-            <header className="sticky top-0 z-50 w-full border-b bg-card shadow-md">
+            <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur-sm shadow-sm">
                 <div className="flex h-16 items-center px-4 md:px-6 justify-between">
                     {/* Logo and App Name */}
                     <div
-                        className="flex items-center gap-2 md:gap-3 cursor-pointer flex-1 min-w-0"
+                        className="flex items-center gap-2 md:gap-3 cursor-pointer flex-1 min-w-0 hover:opacity-80 transition-opacity"
                         onClick={() => navigate("/dashboard")}
                     >
-                        <div className="w-9 h-9 md:w-10 md:h-10 rounded-lg bg-primary flex items-center justify-center overflow-hidden p-1 shadow-sm flex-shrink-0">
+                        <div className="w-9 h-9 md:w-10 md:h-10 rounded-lg bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center overflow-hidden p-1 shadow-sm flex-shrink-0">
                             <img
                                 src="/LOGO.PNG"
                                 alt="HRM Logo"
@@ -230,8 +230,8 @@ const DashboardLayout = ({ children, role = 'staff', organizationSection, onOrga
 
             <div className="flex flex-1 overflow-hidden">
                 {/* Sidebar (Desktop) */}
-                <aside className="hidden md:flex w-64 flex-col border-r bg-card shadow-inner overflow-y-auto">
-                    <nav className="flex-1 space-y-1 p-4 pt-6">
+                <aside className="hidden md:flex w-64 flex-col border-r border-border/40 bg-card/50 backdrop-blur-sm overflow-y-auto transition-all duration-300">
+                    <nav className="flex-1 space-y-2 p-4 pt-6">
                         {menuItems.map((item) => {
                             const active = isActive(item.path);
                             const isOrgMenu = item.path === "/organization";
