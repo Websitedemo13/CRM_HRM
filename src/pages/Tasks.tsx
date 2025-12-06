@@ -61,23 +61,23 @@ const Tasks = () => {
 
   return (
     <DashboardLayout role={role} tasksSection={activeTab} onTasksSectionChange={setActiveTab}>
-      <div className="space-y-6 animate-fade-in pb-20 md:pb-6">
+      <div className="space-y-6 animate-fade-in">
 
-        <div className="mb-2">
-          <h2 className="text-4xl font-heading font-bold bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
+        <div className="mb-6 pb-4 border-b border-border/20">
+          <h2 className="text-4xl font-heading font-bold bg-gradient-to-r from-primary via-primary to-blue-600 bg-clip-text text-transparent mb-2">
             Công việc
           </h2>
-          <p className="text-muted-foreground mt-2">Quản lý và theo dõi nhiệm vụ của bạn</p>
+          <p className="text-sm md:text-base text-muted-foreground font-medium">Quản lý và theo dõi nhiệm vụ của bạn</p>
         </div>
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
 
           {/* ======= TABS LIST ======= */}
-          <TabsList className="bg-secondary shadow-soft flex flex-wrap h-auto gap-1 p-1">
+          <TabsList className="bg-background/50 border border-border/20 shadow-sm flex flex-wrap h-auto gap-1 p-2 rounded-lg mb-6">
 
             {/* ======= NHÓM QUẢN LÝ CÔNG VIỆC ======= */}
             {/* Bảng */}
-            <TabsTrigger value="board" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground flex items-center gap-2">
+            <TabsTrigger value="board" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-sm flex items-center gap-2 transition-all duration-200 rounded-md">
               <LayoutGrid className="h-4 w-4" />
               <span className="hidden sm:inline">Bảng</span>
             </TabsTrigger>
